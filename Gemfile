@@ -83,7 +83,7 @@ group :development do
   end
 end
 
-gem 'awesome_print', group: %w(test development console)
+gem 'awesome_print', :group => %w(test development console)
 
 # Use unicorn as the app server
 gem 'unicorn'
