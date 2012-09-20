@@ -20,8 +20,8 @@ gem 'kramdown' # markdown
 gem 'simple_form'
 gem 'simple-navigation'
 gem 'simple-navigation-bootstrap'
-gem 'meta-tags', '1.2.4', :require => 'meta_tags'
-gem 'kaminari'
+# gem 'meta-tags', '1.2.4', :require => 'meta_tags'
+# gem 'kaminari'
 gem 'twitter-bootstrap-rails'
 
 # media
