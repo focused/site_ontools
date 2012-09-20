@@ -1,0 +1,58 @@
+devise:
+  confirmations:
+    new:
+      title: Resend confirmation instructions
+  mailer:
+    confirmation_instructions:
+      title: Welcome
+      description: 'You can confirm your account email through the link below:'
+      confirm: Confirm my account
+    reset_password_instructions:
+      title: Hello
+      description: 'Someone has requested a link to change your password, and you can do this through the link below.'
+      edit_password: Change my password
+      text: !!markdown
+        If you didn't request this, please ignore this email.
+        Your password won't change until you access the link above and create a new one.
+    unlock_instructions:
+      title: Hello
+      description: !!markdown
+        "Your account has been locked due to an excessive amount of unsuccessful sign in attempts.
+        Click the link below to unlock your account:"
+      unlock: Unlock my account
+  passwords:
+    edit:
+      title: Change your password
+      new_password: new password
+      confirm_new_password: confirm new password
+      change_password: Change my password
+    new:
+      title: Forgot your password?
+      send_reset_password: Send me reset password instructions
+  registrations:
+    edit:
+      title: Edit
+      password_notice: leave blank if you don't want to change it
+      current_password_notice: we need your current password to confirm your changes
+      subtitle: Cancel my account
+      subtext: Unhappy?
+      delete_registration: Cancel my account
+    new:
+      title: Sign up
+      sign_up: Sign up
+  sessions:
+    new:
+      title: Sign in
+  shared:
+    links:
+      sign_in: Sign in
+      sign_up: Sign up
+      new_password: Forgot your password?
+      new_confirmation: Didn't receive confirmation instructions?
+      new_unlock: Didn't receive unlock instructions?
+      omniauth_authorize: Sign in with
+  unlocks:
+    new:
+      title: Resend unlock instructions
+
+

@@ -1,0 +1,17 @@
+.form-horizontal {
+  input {
+    &.string, &.password, &.numeric {
+      width: 250px;
+    }
+  }
+  textarea {
+    width: 95%;
+  }
+  .input-prepend {
+
+    input {
+      width: 225px;
+    }
+  }
+
+}

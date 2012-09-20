@@ -1,0 +1,44 @@
+- model_class = Page
+
+= tinymce_assets
+
+= simple_form_for [:backend, @page], html: { class: 'form-horizontal' } do |f|
+  = f.error_notification
+
+  .form-actions
+    = f.button :submit, class: 'btn-primary', value: t("helpers.links.save")
+    = link_to t('.cancel', default: t("helpers.links.cancel")), backend_pages_path, class: 'btn'
+
+  .form-inputs
+    = f.input :path
+    - @page.attributes.keys.select{ |attr| attr =~/title_(.)/ }.each do |elem|
+      = f.input elem.to_sym, label: model_class.human_attribute_name(:title) + " (#{elem.split('_').last})"
+    - @page.attributes.keys.select{ |attr| attr =~/content_(.)/ }.each do |elem|
+      = f.input elem.to_sym, label: model_class.human_attribute_name(:content) + " (#{elem.split('_').last})",
+        input_html: { class: "tinymce" }
+    = f.input :visible
+
+  .form-actions
+    = f.button :submit, class: 'btn-primary', value: t("helpers.links.save")
+    = link_to t('.cancel', default: t("helpers.links.cancel")), backend_pages_path, class: 'btn'
+
+= tinymce theme: "advanced", language: r18n.locale.code #, plugins: ["inlinepopups", "paste"]
+
+:javascript
+  function elFinderBrowser (field_name, url, type, win) {
+    var elfinder_url = '/filemanager/browser';    // use an absolute path!
+    tinyMCE.activeEditor.windowManager.open({
+      file: elfinder_url,
+      title: 'elFinder 2.0',
+      width: 900,
+      height: 450,
+      resizable: 'yes',
+      inline: 'yes',    // This parameter only has an effect if you use the inlinepopups plugin!
+      popup_css: false, // Disable TinyMCE's default popup CSS
+      close_previous: 'no'
+    }, {
+      window: win,
+      input: field_name
+    });
+    return false;
+  }

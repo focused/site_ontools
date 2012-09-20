@@ -1,0 +1,41 @@
+activerecord:
+  attributes:
+    page:
+      content: содержимое
+      created_at: создана
+      path: путь
+      title: заголовок
+      updated_at: изменена
+      visible: видимая
+    page_meta_tag:
+      created_at: создана
+      description: описание
+      keywords: ключевые слова
+      path: путь
+      title: заголовок
+      updated_at: изменен
+      visible: видимый
+    user:
+      confirmed: подтвержден
+      created_at: создан
+      email: эл. адрес
+      name: имя (полное)
+      password: пароль
+      password_confirmation: подтверждение пароля
+      remember_me: запомнить меня
+      roles: роли
+      roles_mask: маска ролей
+  errors:
+    page_not_found: Страница не найдена
+    messages:
+      too_short: !!pl
+        1: 'недостаточной длины (не может быть меньше %{count} символа)'
+        n: 'недостаточной длины (не может быть меньше %{count} символов)'
+  models:
+    page: !!pl
+      1: Страница
+      n: Страницы
+    page_meta_tag: Мета тег
+    user: !!pl
+      1: Пользователь
+      n: Пользователи

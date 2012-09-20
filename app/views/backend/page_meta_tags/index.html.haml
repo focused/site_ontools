@@ -1,0 +1,30 @@
+- model_class = PageMetaTag
+
+.page-header
+  %h1= t '.title', default: model_class.model_name.human.pluralize
+
+%table.table.table-striped.table-hover
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:path)
+      %th= model_class.human_attribute_name(:title)
+      %th= model_class.human_attribute_name(:created_at)
+      %th= model_class.human_attribute_name(:updated_at)
+      %th= t '.actions', default: t("helpers.actions")
+  %tbody
+    - @page_meta_tags.each do |page_meta_tag|
+      %tr
+        %td= page_meta_tag.id
+        %td= link_to page_meta_tag.path, page_full_path(page_meta_tag.path)
+        %td= link_to page_meta_tag.title, [:backend, page_meta_tag]
+        %td= l page_meta_tag.created_at, :full
+        %td= l page_meta_tag.updated_at, :full
+        %td
+          - if can? :edit, page_meta_tag
+            = link_to t('.edit', default: t("helpers.links.edit")), edit_backend_page_meta_tag_path(page_meta_tag), class: 'btn btn-mini'
+          - if can? :destroy, page_meta_tag
+            = link_to t('.destroy', default: t("helpers.links.destroy")), [:backend, page_meta_tag], method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
+
+- if can? :create, model_class
+  = link_to t('.new', default: t("helpers.links.new")), new_backend_page_meta_tag_path, class: 'btn btn-primary'

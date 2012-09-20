@@ -1,0 +1,22 @@
+- model_class = PageMetaTag
+
+= simple_form_for [:backend, @page_meta_tag], html: { class: 'form-horizontal' } do |f|
+  = f.error_notification
+
+  .form-actions
+    = f.button :submit, class: 'btn-primary', value: t("helpers.links.save")
+    = link_to t('.cancel', default: t("helpers.links.cancel")), backend_page_meta_tags_path, class: 'btn'
+
+  .form-inputs
+    = f.input :path
+    - @page_meta_tag.attributes.keys.select{|attr| attr =~/title_(.)/}.each do |elem|
+      = f.input elem.to_sym, label: model_class.human_attribute_name(:title) + " (#{elem.split('_').last})"
+    - @page_meta_tag.attributes.keys.select{|attr| attr =~/keywords_(.)/}.each do |elem|
+      = f.input elem.to_sym, :as => :text, label: model_class.human_attribute_name(:keywords) + " (#{elem.split('_').last})", input_html: {rows: "4"}
+    - @page_meta_tag.attributes.keys.select{|attr| attr =~/description_(.)/}.each do |elem|
+      = f.input elem.to_sym, :as => :text, label: model_class.human_attribute_name(:description) + " (#{elem.split('_').last})", input_html: {rows: "4"}
+
+  .form-actions
+    = f.button :submit, class: 'btn-primary', value: t("helpers.links.save")
+    = link_to t('.cancel', default: t("helpers.links.cancel")), backend_page_meta_tags_path, class: 'btn'
+

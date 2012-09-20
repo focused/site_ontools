@@ -1,0 +1,6 @@
+%p
+  #{t '.title'} #{@resource.email}!
+
+%p= t '.description'
+
+%p= link_to t('.confirm'), confirmation_url(@resource, confirmation_token: @resource.confirmation_token)

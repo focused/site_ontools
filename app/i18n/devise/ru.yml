@@ -1,0 +1,56 @@
+devise:
+  confirmations:
+    new:
+      title: Отправить инструкции по подтверждению
+  mailer:
+    confirmation_instructions:
+      title: Добро пожаловать
+      description: 'Вы можете подтвердить вашу учетную запись по ссылке ниже:'
+      confirm: Подтвердить мою учетную запись
+    reset_password_instructions:
+      title: Здравствуйте,
+      description: 'Кто-то сделал запрос на изменения вашего пароля. Вы можете сделать это по ссылке ниже.'
+      edit_password: Изменить пароль
+      text: !!markdown
+        Если Вы не делали запрос, просто проигнорируйте это сообщение.
+        Ваш пароль не изменится пока вы не перейдете по ссылке выше и не введете новый пароль.
+    unlock_instructions:
+      title: Здравствуйте,
+      description: !!markdown
+        "Ваша учетная запись была заблокирована из-за превышения количества неудачных попыток входа.
+        Перейдите по ссылке ниже для разблокирования учетной записи:"
+      unlock: Разблокировать учетную запись
+  passwords:
+    edit:
+      title: Изменение пароля
+      new_password: новый пароль
+      confirm_new_password: подтвердите новый пароль
+      change_password: Изменить пароль
+    new:
+      title: Забыли пароль?
+      send_reset_password: Отправить инструкции по сбросу пароля
+  registrations:
+    edit:
+      title: Редактирование
+      password_notice: 'оставьте пустым, если не хотите менять'
+      current_password_notice: введите текущий пароль для подтверждения изменений
+      subtitle: Удаление учетной записи
+      subtext: Больше не хотите пользоваться?
+      delete_registration: Удалить мою учетную запись
+    new:
+      title: Регистрация
+      sign_up: Зарегистрироваться
+  sessions:
+    new:
+      title: Вход
+  shared:
+    links:
+      sign_in: Вход
+      sign_up: Регистрация
+      new_password: Забыли пароль?
+      new_confirmation: Не получили инструкции по подтверждению?
+      new_unlock: Не получили инструкции по разблокированию?
+      omniauth_authorize: Войти с помощью
+  unlocks:
+    new:
+      title: Отправить инструкции по разблокированию

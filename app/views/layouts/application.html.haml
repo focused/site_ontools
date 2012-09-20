@@ -1,0 +1,44 @@
+!!!
+%html{ lang: r18n.locale.code }
+  %head
+    %meta{ charset: Rails.application.config.encoding }
+    %meta{ 'http-equiv' => 'X-UA-Compatible', content: 'IE=Edge,chrome=1' }
+    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
+    = display_meta_tags(site: t.app.name, reverse: true, separator: '-')
+
+    = favicon_link_tag '/favicon.png', type: 'image/png'
+    = favicon_link_tag '/favicon.png', rel: 'apple-touch-icon', type: 'image/png'
+
+    = javascript_include_tag 'application'
+
+    /[if lt IE 9]
+      = javascript_include_tag 'ie'
+
+    = stylesheet_link_tag 'application', media: 'all'
+    = stylesheet_link_tag 'print', media: 'print'
+
+    /[if lt IE 8]
+      = stylesheet_link_tag 'ie'
+
+    = csrf_meta_tags
+
+    = yield :head
+
+  %body{ id: params[:controller] << '_controller' }
+    = yield :begin
+
+    #main_container
+      = render partial: '/langs_menu'
+      .clear
+
+      = render_navigation
+      .clear
+
+      %h1= link_to(t.app.name, root_path)
+      = render partial: '/flash_messages'
+      %br
+
+      #content
+        = yield
+
+    = yield :end

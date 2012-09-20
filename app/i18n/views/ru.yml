@@ -1,0 +1,21 @@
+labels:
+  group: Раздел
+
+links:
+  unsubscribe: Отписаться от обновлений
+
+users:
+  roles:
+    admin: Администратор
+    editor: Редактор
+    manager: Менеджер
+
+views:
+  back_to_list: Вернуться к списку
+  pagination:
+    first: '&laquo; Первая страница'
+    last: 'Последняя страница &raquo;'
+    previous: '← Предыдущая страница'
+    next: 'Следующая страница →'
+    truncate: '...'
+

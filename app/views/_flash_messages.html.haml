@@ -1,0 +1,7 @@
+- if flash.present? #&& show_flash?
+  .flash_wrapper
+    - flash.reject { |e| e[0] == :options }.each do |key, msg|
+      - if flash[:options]
+        = content_tag :div, I18n.t(msg, flash[:options]), class: "flash #{key}"
+      - else
+        = content_tag :div, (msg.html_safe rescue ''), class: "flash #{key}"

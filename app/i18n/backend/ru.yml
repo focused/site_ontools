@@ -1,0 +1,28 @@
+backend:
+  app_pages:
+    index:
+      description: Выберите пункт меню в панели навигации для управления ресурсом
+      title: Управление
+
+  menu:
+    app_pages: Управление
+    pages: Страницы
+    page_meta_tags: Мета теги
+    users: Пользователи
+
+  page_meta_tags:
+    index:
+      title: Мета теги
+
+  pages:
+    index:
+      title: Страницы
+
+  sidebar:
+    resources: Ресурсы
+
+  users:
+    index:
+      title: Пользователи
+
+

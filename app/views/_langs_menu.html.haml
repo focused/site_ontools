@@ -1,0 +1,7 @@
+%ul#langs.h_menu
+  - r18n.available_locales.each do |locale|
+    %li
+      - if r18n.locale.code == locale.code
+        %span= locale.title
+      - else
+        = link_to locale.title, root_path(locale: locale.code != APP[:native_locale] ? locale.code : nil)

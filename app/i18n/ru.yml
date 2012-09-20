@@ -1,0 +1,77 @@
+actions:
+  back: Назад
+  cancel: Отменить
+  destroy: Удалить
+  do_send: Отправить
+  edit: Редактировать
+  find: Найти
+  new: Новая запись
+  save: Сохранить
+  show: Открыть
+  sign_in: Войти
+  sign_out: Выйти
+  update: Сохранить изменения
+
+alerts:
+  access_denied: Доступ запрещен
+
+app:
+  name: Template1
+
+errors:
+  messages:
+    carrierwave_processing_error: невозможно обработать
+    carrierwave_integrity_error: имеет недопустимый формат
+    extension_white_list_error: "недопустимый формат файла %{extension}, возможна загрузка только типов: %{allowed_types}"
+    wrong_size: "неправильный размер (должен быть %{file_size})"
+    size_too_small: "слишком мал (минимум %{file_size})"
+    size_too_big: "слишком велик (максимум %{file_size})"
+    invalid_date: "имеет неправильный формат даты (yyyy-mm-dd)"
+    invalid_time: "имеет неправильный формат времени (hh:mm)"
+    invalid_date: "имеет неправильный формат даты (dd-mm-yyyy)"
+    on_or_before: "должна быть не позднее сегодня"
+  page_not_found: Страница не найдена
+
+helpers:
+  actions: действия
+  labels:
+    attach: прикрепить
+  links:
+    back: Назад
+    cancel: Отменить
+    choose_file: Выбрать файл
+    confirm: Вы уверены?
+    destroy: Удалить
+    do_confirm: Подтвердить
+    edit: Редактировать
+    new: Создать
+    save: Сохранить
+  titles:
+    edit: '%{model} - редактирование'
+    new: '%{model} - добавление'
+
+menu:
+  home: Главная
+
+meta:
+  description: ""
+  keywords: ""
+  title: ""
+
+questions:
+  confirm: Вы уверены?
+
+sidebar:
+  resources: Ресурсы
+  title: Данные
+
+site:
+  back: К списку
+  found: Найдено
+
+was:
+  confirmed: Запись подтверждена
+  created: Запись создана
+  destroyed: Запись удалена
+  updated: Запись изменена
+

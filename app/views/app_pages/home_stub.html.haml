@@ -1,0 +1,27 @@
+!!!
+%html{ lang: r18n.locale.code }
+  %head
+    %meta{ charset: Rails.application.config.encoding }
+    %meta{ "http-equiv" => "X-UA-Compatible", content: "chrome=1" }
+    %title Home Stub
+
+    = favicon_link_tag '/favicon.png', type: 'image/png'
+
+    = javascript_include_tag "application"
+
+    /[if lt IE 9]
+      = javascript_include_tag "ie"
+
+    = stylesheet_link_tag "application", media: 'all'
+    = stylesheet_link_tag "print", media: 'print'
+
+    /[if lt IE 8]
+      = stylesheet_link_tag "ie"
+
+    = csrf_meta_tags
+
+  %body{ id: params[:controller] + "_controller" }
+    %h1 Stub application page
+    #content
+      Stub application page
+

@@ -1,0 +1,16 @@
+.control-group
+  = f.label News.human_attribute_name attr
+  .controls
+    .image_wrapper
+      - if f.object.send("#{attr}_cache")
+        = f.object.send("#{attr}_cache")
+      - elsif f.object.send(attr).file
+        = new_window_link_to simple_image(f.object.send(attr).thumb, f.object.send(attr), class: 'img-rounded img-polaroid'), f.object.send(attr).to_s
+        = f.button :button, "#{content_tag :i, nil, class: 'icon-remove'}".html_safe, type: 'button', name: 'remove_image',
+          class: 'btn btn-mini remove_mounted', data: { toggle: 'button' }
+        = f.input "remove_#{attr}", as: 'hidden', wrapper: 'hidden'
+      - else
+        = simple_image(f.object.send(attr).thumb, f.object.send(attr), class: 'img-rounded img-polaroid')
+
+= f.input attr, label: t.helpers.labels.attach
+= f.hidden_field "#{attr}_cache"

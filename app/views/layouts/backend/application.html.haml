@@ -1,0 +1,55 @@
+!!!
+%html{ lang: r18n.locale.code }
+  %head
+    %meta{ charset: Rails.application.config.encoding }
+    %meta{ "http-equiv" => "X-UA-Compatible", content: "IE=Edge,chrome=1" }
+    %title= t.app.name
+
+    = favicon_link_tag '/favicon.png', type: 'image/png'
+
+    = javascript_include_tag "backend"
+
+    = stylesheet_link_tag "backend", media: 'all'
+
+    /[if lt IE 8]
+      = stylesheet_link_tag "ie"
+
+    = csrf_meta_tags
+
+    = yield :head
+
+  %body{ id: params[:controller] << '_controller' }
+    = yield :begin
+
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container-fluid
+          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          = link_to t.app.name, root_path, class: 'brand'
+          .container.nav-collapse
+            = render_navigation(context: 'backend')
+
+    #main_container.container-fluid
+
+      #content.content
+        .row-fluid
+          .span2
+            .well.well-small.sidebar-nav
+              = render_navigation(context: 'backend_side')
+          .span10
+            = bootstrap_flash
+            = yield
+
+      %footer
+        %p &copy; Template1 2012
+
+      - if APP[:debug]
+        = debug params
+        = debug session
+
+    = yield :end
+
+

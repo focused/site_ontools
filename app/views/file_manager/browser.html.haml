@@ -1,0 +1,48 @@
+= stylesheet_link_tag 'jquery.ui/smoothness/jquery-ui-1.8.23.custom', 'elfinder/elfinder'
+= javascript_include_tag 'application', 'jquery-ui', 'elfinder/elfinder.min', 'elfinder/proxy/elFinderSupportVer1', 'elfinder/i18n/elfinder.LANG', 'tiny_mce/tiny_mce_popup'
+
+:javascript
+  var FileBrowserDialogue = {
+    init: function() {
+      // Here goes your code for setting your custom things onLoad.
+    },
+    mySubmit: function (URL) {
+      var win = tinyMCEPopup.getWindowArg('window');
+
+      // pass selected file path to TinyMCE
+      win.document.getElementById(tinyMCEPopup.getWindowArg('input')).value = URL;
+
+      // are we an image browser?
+      if (typeof(win.ImageDialog) != 'undefined') {
+        // update image dimensions
+        if (win.ImageDialog.getImageData) {
+          win.ImageDialog.getImageData();
+        }
+        // update preview if necessary
+        if (win.ImageDialog.showPreviewImage) {
+          win.ImageDialog.showPreviewImage(URL);
+        }
+      }
+
+      // close popup window
+      tinyMCEPopup.close();
+    }
+  }
+
+  tinyMCEPopup.onInit.add(FileBrowserDialogue.init, FileBrowserDialogue);
+
+  $(function() {
+    var rails_csrf = {};
+    rails_csrf[$('meta[name=csrf-param]').attr('content')] = $('meta[name=csrf-token]').attr('content');
+
+    var elf = $('#elfinder').elfinder({
+      url: '/filemanager/elfinder',
+      transport : new elFinderSupportVer1(),
+      customData: rails_csrf,
+      getFileCallback: function(url) { // editor callback
+        FileBrowserDialogue.mySubmit(url); // pass selected file path to TinyMCE 
+      }
+    }).elfinder('instance');
+  })
+
+#elfinder
