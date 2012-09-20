@@ -252,9 +252,6 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    valid_email (0.0.4)
-      activemodel
-      mail
     valium (0.5.0)
       activerecord (>= 3.0.2)
     warden (1.2.1)
@@ -303,5 +300,4 @@ DEPENDENCIES
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
   unicorn
-  valid_email
   valium

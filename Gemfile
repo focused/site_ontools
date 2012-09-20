@@ -52,7 +52,7 @@ gem 'therubyracer'
 gem 'jquery-rails'
 
 # validations
-gem 'valid_email'
+# gem 'valid_email'
 
 gem 'tinymce-rails'
 gem 'tinymce-rails-langs'
