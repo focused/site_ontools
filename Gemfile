@@ -20,8 +20,8 @@ gem 'kramdown' # markdown
 gem 'simple_form'
 gem 'simple-navigation'
 gem 'simple-navigation-bootstrap'
-# gem 'meta-tags', '1.2.4', :require => 'meta_tags'
-# gem 'kaminari'
+gem 'meta-tags', '1.2.4', :require => 'meta_tags'
+gem 'kaminari'
 gem 'twitter-bootstrap-rails'
 
 # media
@@ -52,7 +52,7 @@ gem 'therubyracer'
 gem 'jquery-rails'
 
 # validations
-# gem 'valid_email'
+gem 'valid_email'
 
 gem 'tinymce-rails'
 gem 'tinymce-rails-langs'

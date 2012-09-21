@@ -1,4 +1,4 @@
-# require 'valid_email'
+require 'valid_email'
 
 class User < ActiveRecord::Base
   # roles_mask can have corresponding values: 1, 2, 4
@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
 
   scope :ordered, order { users.email }
 
-  validates :email, presence: true, uniqueness: true#, email: { mx: Rails.env == 'production' ? true : false }
+  validates :email, presence: true, uniqueness: true, email: { mx: Rails.env == 'production' ? true : false }
   validates :password, length: { minimum: 6, maximum: 64 }, allow_blank: true
   validates_presence_of :password, unless: 'edited_by_admin'
   validates_confirmation_of :password
