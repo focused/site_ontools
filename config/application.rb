@@ -75,7 +75,7 @@ module Template1
 
       g.helper false
       g.stylesheets false
-      g.scripts false
+      g.javascripts false
     end
   end
 end
