@@ -1,0 +1,125 @@
+= link_to_unless_current simple_image('application/logobottom.png', nil, class: 'logo'), root_path
+
+%ul#menu
+  %li
+    = link_to t.menu.home, root_path
+    %ul
+      %li
+        %a{href: "testing.htm"} Комплекты
+        %ul
+          %li
+            %a{href: "testing.htm"} D-Lite 2
+          %li
+            %a{href: "testing.htm"} D-Lite 4
+      %li
+        %a{href: "testing.htm"} Моноблоки
+        %ul
+          %li
+            %a{href: "testing.htm"} Style RX 600
+          %li
+            %a{href: "testing.htm"} Style RX 1200
+      %li
+        %a{href: "soft.htm"} Софт-боксы
+        %ul
+          %li
+            %a{href: "soft1.htm"} Basic
+          %li
+            %a{href: "soft.htm#q"} Quadra
+          %li
+            %a{href: "soft.htm#r"} Recta
+          %li
+            %a{href: "soft.htm#o"} Octa
+          %li
+            %a{href: "soft.htm#i"} Inderect
+      %li
+        %a{href: "soft_acc.htm"}
+          Аксессуары для
+          %br софт-боксов
+        %ul
+          %li
+            %a{href: "soft_acc.htm#b"} Бленда-диффузор
+          %li
+            %a{href: "soft_acc.htm#r"} Решетка-диффузор
+      %li
+        %a{href: "light.htm"}
+          Светоформирующие
+          %br насадки
+        %ul
+          %li
+            %a{href: "light.htm#r"} Рефлекторы
+          %li
+            %a{href: "light.htm#p"} Портретная тарелка
+          %li
+            %a{href: "light1.htm"}
+              Тубус с сотовым
+              %br фильтром
+          %li
+            %a{href: "light2.htm"} Миниспот
+          %li
+            %a{href: "light3.htm"} Шторки 21 см
+          %li
+            %a{href: "light4.htm"}
+              Сотовый фильтр для
+              %br шторок
+          %li
+            %a{href: "light.htm#s"}
+              Сотовые фильтры для
+              %br рефлектора
+          %li
+            %a{href: "light.htm#z"} Зонты
+      %li
+        %a{href: "synchro.htm"}
+          Средства
+          %br синхронизации
+        %ul
+          %li
+            %a{href: "synchro1.htm"}
+              EL Skyport Transmitter
+              %br Speed
+          %li
+            %a{href: "synchro2.htm"}
+              EL Skyport Transmitter
+              %br Eco
+          %li
+            %a{href: "synchro3.htm"}
+              EL Skyport Universal
+              %br Trigger Set
+      %li
+        %a{href: "generate.htm"} Генераторные системы
+        %ul
+          %li
+            %a{href: "generate.htm#g"} Генераторы
+          %li
+            %a{href: "generate.htm#o"} Осветительные головки
+      %li
+        %a{href: "acc.htm"} Аксессуары
+        %ul
+          %li
+            %a{href: "acc.htm#s"} Стойки
+          %li
+            %a{href: "acc1.htm"}
+              Настенный держатель
+              %br для фона
+          %li
+            %a{href: "acc2.htm"} Лампа моделирующая
+          %li
+            %a{href: "acc3.htm"} Синхро-кабель
+          %li
+            %a{href: "acc.htm#r"}
+              Рассеиватель для
+              %br портретной тарелки
+          %li
+            %a{href: "acc4.htm"}
+              Набор отражателей для
+              %br портретной тарелки
+          %li
+            %a{href: "acc.htm#k"} Кабель силовой
+  %li= link_to t.menu.delivery, static_page_path('delivery')
+  %li= link_to t.menu.prices, static_page_path('prices')
+  %li= link_to t.menu.guarantee, static_page_path('guarantee')
+  %li= link_to t.menu.offers, static_page_path('offers')
+  %li= link_to t.menu.contacts, static_page_path('contacts')
+
+= simple_image 'application/main.png', nil, class: 'photo_main'
+
+.topline

@@ -1,4 +1,4 @@
-Template1::Application.routes.draw do
+SiteOne::Application.routes.draw do
 
   # ----------------------------------------------------------------------------
   # BACKEND
@@ -37,6 +37,7 @@ Template1::Application.routes.draw do
     match '*path' => 'pages#show', as: :static_page,
       constraints: lambda { |request| APP[:available_locales].exclude?(request.params[:path].to_sym) && (request.url =~ /\.(\w{2,4})$/).nil? }
 
-    root to: "app_pages#home#{Rails.env.production? ? '_stub' : ''}"
+    root to: 'app_pages#home'
+    # root to: "app_pages#home#{Rails.env.production? ? '_stub' : ''}"
   end
 end

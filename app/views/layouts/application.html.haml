@@ -27,18 +27,18 @@
   %body{ id: params[:controller] << '_controller' }
     = yield :begin
 
-    #main_container
-      = render partial: '/langs_menu'
-      .clear
+    #best
+      = render partial: '/layouts/header'
 
-      = render_navigation
-      .clear
+      = render partial: '/layouts/sidebar'
+      =# render_navigation
 
-      %h1= link_to(t.app.name, root_path)
       = render partial: '/flash_messages'
       %br
 
       #content
         = yield
+
+      = render partial: '/layouts/footer'
 
     = yield :end

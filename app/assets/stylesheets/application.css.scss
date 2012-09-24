@@ -9,28 +9,10 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *
- *= require reset
  *= require helpers
  *= require_self
  *= require_tree ./application
  */
-
-body {
-  padding: 20px;
-}
-
-h1 {
-  font-size: 2em;
-}
-
-ul.h_menu, ul.nav {
-  height: 20px;
-  padding-bottom: 10px;
-  li {
-    float: left;
-    padding: 0 10px;
-  }
-}
 
 #error_explanation {
   color: #a00;
@@ -45,5 +27,12 @@ ul.h_menu, ul.nav {
   }
 }
 
-
+table {
+  border-spacing: 1px;
+  background: #000;
+  th, td {
+    padding: 10px;
+    background: #fff;
+  }
+}
 

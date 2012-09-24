@@ -17,7 +17,7 @@ alerts:
   access_denied: Доступ запрещен
 
 app:
-  name: Template1
+  name: ONTOOLS
 
 errors:
   messages:
@@ -53,7 +53,12 @@ helpers:
     new: '%{model} - добавление'
 
 menu:
-  home: Главная
+  contacts: Контакты
+  delivery: Доставка
+  guarantee: Гарантии
+  home: Каталог
+  offers: Акции
+  prices: Прайс-лист
 
 meta:
   description: ""
