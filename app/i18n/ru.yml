@@ -6,6 +6,7 @@ actions:
   edit: Редактировать
   find: Найти
   new: Новая запись
+  please_wait: Подождите...
   save: Сохранить
   show: Открыть
   sign_in: Войти
@@ -35,6 +36,7 @@ errors:
 helpers:
   actions: действия
   labels:
+    all: все
     attach: прикрепить
   links:
     back: Назад
@@ -60,10 +62,6 @@ meta:
 
 questions:
   confirm: Вы уверены?
-
-sidebar:
-  resources: Ресурсы
-  title: Данные
 
 site:
   back: К списку

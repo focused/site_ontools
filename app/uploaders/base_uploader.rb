@@ -44,7 +44,7 @@ class BaseUploader < CarrierWave::Uploader::Base
   end
 
   # Process files as they are uploaded:
-  process resize_to_limit: [1000, 1000]
+  process resize_to_fit: [1000, 1000]
 
   version :thumb, if: 'thumbnable?' do
     process resize_to_fit: [48, 48]

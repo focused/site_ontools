@@ -4,6 +4,12 @@ labels:
 links:
   unsubscribe: Отписаться от обновлений
 
+user:
+  roles:
+    admin: Администратор
+    editor: Редактор
+    manager: Менеджер
+
 users:
   roles:
     admin: Администратор

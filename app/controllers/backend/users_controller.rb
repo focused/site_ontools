@@ -7,6 +7,10 @@ class Backend::UsersController < Backend::ApplicationController
 
   load_and_authorize_resource
 
+  before_filter only: %w(update confirm) do
+    @user.edited_by_admin = true
+  end
+
   def index
     @users = @users.ordered.all
   end
@@ -24,12 +28,10 @@ class Backend::UsersController < Backend::ApplicationController
     @user.do_confirm = true
 
     redirect_to backend_user_path(@user), notice: t('was.created') and return if @user.save
-    respond_with(@user, action: 'new')
+    respond_with(@user)
   end
 
   def update
-    @user.edited_by_admin = true
-
     updated = if params[:user]['password'].present?
       @user.update_with_password(params[:user], without_protection: true)
     else
@@ -50,8 +52,7 @@ class Backend::UsersController < Backend::ApplicationController
   end
 
   def confirm
-    @user = User.find(params[:id])
-    @user.confirm!
-    redirect_to @user, notice: t('was.confirmed') and return if @user.save
+    redirect_to [:backend, @user], notice: t('was.confirmed') and return if @user.confirm!
+    render 'show'
   end
 end

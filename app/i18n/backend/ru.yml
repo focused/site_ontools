@@ -18,6 +18,13 @@ backend:
     index:
       title: Страницы
 
+  pagination:
+    first: '&laquo;'
+    last: '&raquo;'
+    previous: '←'
+    next: '→'
+    truncate: '...'
+
   sidebar:
     resources: Ресурсы
 
