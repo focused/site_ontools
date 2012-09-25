@@ -76,7 +76,7 @@ set :bundle_cmd,      "rvm use #{rvm_ruby_string} do bundle"
 # по умолчанию - git, если используется иная система версий,
 # нужно изменить значение scm.
 set :scm, :git
-# set :scm_username, 'focused'
+set :scm_username, 'focused'
 
 # Предполагается, что вы размещаете репозиторий Git в вашем
 # домашнем каталоге в подкаталоге git/<имя проекта>.git.
@@ -87,7 +87,7 @@ set :scm, :git
 ## Если ваш репозиторий в GitHub, используйте такую конфигурацию
 set :repository, "git@github.com:focused/site_one.git"
 # set :deploy_via, :remote_cache
-# set :branch, "master"
+set :branch, "master"
 
 
 # set :scm, :none
