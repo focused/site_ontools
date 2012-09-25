@@ -20,7 +20,7 @@ gem 'kramdown' # markdown
 gem 'simple_form'
 gem 'simple-navigation'
 gem 'simple-navigation-bootstrap'
-gem 'meta-tags', '1.2.4', :require => 'meta_tags'
+gem 'meta-tags', '1.2.4', require: 'meta_tags'
 gem 'kaminari'
 gem 'twitter-bootstrap-rails'
 
@@ -83,7 +83,7 @@ group :development do
   end
 end
 
-gem 'awesome_print', :group => %w(test development console)
+gem 'awesome_print', group: %w(test development console)
 
 # Use unicorn as the app server
 gem 'unicorn'
