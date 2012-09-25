@@ -10,7 +10,7 @@ class PagesController < ApplicationController
     if @page.present?
       meta = PageMetaTag.by_path(params[:path].to_s)
       set_meta_tags(
-        title: (meta.try(:title).present? and !meta.title.nil?) ? meta.title.to_str : t.meta.title,
+        title: (meta.try(:title).present? and !meta.title.nil?) ? meta.title.to_str : (@page.title.present? ? @page.title.to_str : t.meta.title),
         description: (meta.try(:description).present? and !meta.description.nil?) ? meta.description.to_str : t.meta.description,
         keywords: (meta.try(:keywords).present? and !meta.keywords.nil?) ? meta.keywords.to_str : t.meta.keywords
       )
