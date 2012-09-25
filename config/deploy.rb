@@ -1,5 +1,5 @@
 # encoding: utf-8
-
+#
 default_run_options[:pty] = true
 
 # По умолчанию для дистрибуции проектов используется Bundler.
