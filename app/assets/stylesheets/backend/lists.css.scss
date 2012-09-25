@@ -22,3 +22,9 @@ nav.pagination {
     float: right;
   }
 }
+
+table {
+  th.actions {
+    min-width: 100px;
+  }
+}

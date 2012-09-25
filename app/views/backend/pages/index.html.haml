@@ -12,7 +12,7 @@
       %th= model_class.human_attribute_name(:visible)
       %th= model_class.human_attribute_name(:created_at)
       %th= model_class.human_attribute_name(:updated_at)
-      %th= t '.actions', default: t("helpers.actions")
+      %th.actions= t '.actions', default: t("helpers.actions")
   %tbody
     - @pages.each do |page|
       %tr
