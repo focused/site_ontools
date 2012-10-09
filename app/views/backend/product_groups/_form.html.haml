@@ -1,0 +1,22 @@
+= content_for :head do
+  = tinymce_assets
+
+= simple_form_for [:backend, @product_group], html: { class: 'form-horizontal' } do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :parent
+    = f.input :name
+    = f.input :alias_name
+    = f.input :position
+    = f.input :description, input_html: { class: 'tinymce' }
+    = f.input :visible
+
+    %hr
+    = render partial: '/backend/form_asset', locals: { f: f, attr: 'image' }
+
+  .form-actions
+    = f.button :submit, class: 'btn-primary', value: t("helpers.links.save")
+    = link_to t('.cancel', default: t("helpers.links.cancel")), backend_product_groups_path, class: 'btn'
+
+= tinymce theme: "advanced", language: r18n.locale.code

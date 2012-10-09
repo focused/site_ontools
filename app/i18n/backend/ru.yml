@@ -8,6 +8,7 @@ backend:
     app_pages: Управление
     pages: Страницы
     page_meta_tags: Мета теги
+    product_groups: Категории продукции
     users: Пользователи
 
   page_meta_tags:
@@ -24,6 +25,10 @@ backend:
     previous: '←'
     next: '→'
     truncate: '...'
+
+  product_groups:
+    index:
+      title: Категории продукции
 
   sidebar:
     resources: Ресурсы

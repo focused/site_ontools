@@ -31,6 +31,11 @@ module Extensions
       link_to label, url, html_options
     end
 
+    # anchor tags
+    def anchor_tag(name)
+      link_to '', '', name: name
+    end
+
 
     # --------------------------------------------------------------------------
     # images

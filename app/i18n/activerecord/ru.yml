@@ -15,6 +15,16 @@ activerecord:
       title: заголовок
       updated_at: изменен
       visible: видимый
+    product_group:
+      alias_name: псевдоним
+      created_at: создана
+      description: описание
+      image: изображение
+      name: название
+      parent: родитель
+      position: порядок
+      visible: видимая
+      updated_at: обновлена
     user:
       confirmed: подтвержден
       created_at: создан
@@ -34,4 +44,5 @@ activerecord:
   models:
     page: Страница
     page_meta_tag: Мета тег
+    product_group: Категория продукции
     user: Пользователь

@@ -1,0 +1,49 @@
+- model_class = ProductGroup
+.page-header
+  %h1= t '.title', default: model_class.model_name.human
+
+%p
+  %strong= model_class.human_attribute_name(:parent) + ':'
+  %br
+  = @product_group.parent
+%p
+  %strong= model_class.human_attribute_name(:name) + ':'
+  %br
+  = link_to @product_group.name, [:backend, @product_group]
+%p
+  %strong= model_class.human_attribute_name(:alias_name) + ':'
+  %br
+  =# link_to @product_group.alias_name, @product_group
+  = @product_group.alias_name
+%p
+  %strong= model_class.human_attribute_name(:position) + ':'
+  %br
+  = @product_group.position
+%p
+  %strong= model_class.human_attribute_name(:description) + ':'
+  %br
+  = simple_format @product_group.description
+%p
+  %strong= model_class.human_attribute_name(:visible) + ':'
+  %br
+  = @product_group.visible ? t.yes : t.no
+%p
+  %strong= model_class.human_attribute_name(:created_at) + ':'
+  %br
+  = l @product_group.created_at, :full
+%p
+  %strong= model_class.human_attribute_name(:updated_at) + ':'
+  %br
+  = l @product_group.updated_at, :full
+
+
+%hr
+  = render partial: '/backend/asset', locals: { model: @product_group, attr: 'image' }
+
+.form-actions
+  - if can? :index, @product_group
+    = link_to t('.back', default: t("helpers.links.back")), backend_product_groups_path, class: 'btn'
+  - if can? :edit, @product_group
+    = link_to t('.edit', default: t("helpers.links.edit")), edit_backend_product_group_path(@product_group), class: 'btn'
+  - if can? :destroy, @product_group
+    = link_to t('.destroy', default: t("helpers.links.destroy")), [:backend, @product_group], method: "delete", data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger'

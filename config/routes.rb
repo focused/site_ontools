@@ -6,6 +6,7 @@ SiteOne::Application.routes.draw do
 
   get 'admin' => 'backend/app_pages#index', as: 'admin'
   namespace :backend do
+    resources :product_groups
     resources :app_pages, only: 'home'
     resources :users do
       get 'confirm', on: :member

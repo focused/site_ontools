@@ -1,5 +1,5 @@
 .control-group
-  = f.label News.human_attribute_name attr
+  = f.label f.object.class.human_attribute_name attr
   .controls
     .image_wrapper
       - if f.object.send("#{attr}_cache")

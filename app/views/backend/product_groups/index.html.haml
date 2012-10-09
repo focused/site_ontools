@@ -1,0 +1,44 @@
+- model_class = ProductGroup
+.page-header
+  %h1= t '.title', default: model_class.model_name.human.pluralize
+
+= list_limits(controller.list_limits, session[:backend_product_groups][:limit], { class: 'active' }) do |limit|
+  - link_to limit, backend_product_groups_path(limit: limit)
+
+%table.table.table-striped.table-hover
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:parent)
+      %th= model_class.human_attribute_name(:position)
+      %th= model_class.human_attribute_name(:name)
+      %th= model_class.human_attribute_name(:alias_name)
+      %th= model_class.human_attribute_name(:visible)
+      %th= model_class.human_attribute_name(:created_at)
+      %th= model_class.human_attribute_name(:updated_at)
+      %th.actions= t '.actions', default: t("helpers.actions")
+  %tbody
+    - @product_groups.each do |product_group|
+      %tr
+        %td= product_group.id
+        %td
+          - if product_group.parent_id
+            = raw "#{product_group.parent} (#{link_to product_group.parent_id, [:backend, product_group.parent]})"
+        %td= product_group.position
+        %td= link_to product_group.name, [:backend, product_group]
+        %td
+          =# link_to product_group.alias_name, product_group
+          = product_group.alias_name
+        %td= product_group.visible ? t.yes : t.no
+        %td= l product_group.created_at, :full
+        %td= l product_group.updated_at, :full
+        %td
+          - if can? :edit, product_group
+            = link_to '', edit_backend_product_group_path(product_group), class: 'btn icon-pencil'
+          - if can? :destroy, product_group
+            = link_to '', [:backend, product_group], method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger icon-trash'
+
+- if can? :create, model_class
+  = link_to t('.new', default: t("helpers.links.new")), new_backend_product_group_path, class: 'btn btn-primary'
+
+  = paginate @product_groups, theme: 'backend'
