@@ -3,6 +3,7 @@ class AppPagesController < ApplicationController
   layout false, only: 'home_stub'
 
   def home
+
   end
 
   def home_stub

@@ -4,13 +4,10 @@ labels:
 links:
   unsubscribe: Отписаться от обновлений
 
-user:
-  roles:
-    admin: Администратор
-    editor: Редактор
-    manager: Менеджер
+sidebar:
+  all_products: Вся продукция
 
-users:
+user:
   roles:
     admin: Администратор
     editor: Редактор

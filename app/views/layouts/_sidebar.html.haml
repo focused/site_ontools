@@ -1,5 +1,14 @@
 .left
-  %p.position Вся продукция
+  %p.position= t.sidebar.all_products
+
+  - @menu_lists[:product_groups].each do |i, pg|
+    %p.name= link_to pg[:name], pg[:path]
+
+    %p.product
+      - pg[:children].each do |pgc|
+        = link_to pgc[:name], pgc[:path]
+        %br
+
   %p.name
     %a{:href => "testing.htm"} Комплекты
   %p.product

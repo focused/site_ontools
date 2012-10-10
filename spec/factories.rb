@@ -12,5 +12,14 @@ FactoryGirl.define do
     confirmed_at Date.yesterday
   end
 
+  factory :product_group do
+    alias_name 'product_group1'
+    name 'any product group name'
+  end
+
+  factory :product do
+    alias_name 'product1'
+    name 'any product name'
+  end
 end
 

@@ -12,14 +12,26 @@ class ProductGroup < ActiveRecord::Base
 
   mount_uploader :image, ProductGroupUploader
 
-  scope :ordered, order { [parent_id.desc, position] }
-  scope :root, where(parent_id: nil)
-  scope :in_group, lambda { |id| where(parent_id: id) }
+  scope :ordered, order { [parent_id != nil, parent_id, position] }
+  scope :roots, where(parent_id: nil)
+  scope :in_group, proc { |id| where(parent_id: id) }
 
-  validates :name, presence: true, length: { maximum: 500 }
+  validates :name, presence: true, length: { maximum: 255 }
   validates :alias_name, presence: true, uniqueness: true, length: { maximum: 255 }
   # 3 MB file
   validates :image, file_size: { maximum: 3.megabytes.to_i }, if: lambda { |o| o.image_cache.blank? }
+
+  def self.indexed_tree
+    tree = {}
+    ordered.values_of(:id, :name, :alias_name, :parent_id).each do |id, name, alias_name, parent_id|
+      if parent_id.blank?
+        tree[id.to_s] = { name: name, path: "/#{alias_name}", children: [] }
+      else
+        tree[parent_id.to_s][:children] << { name: name, path: "#{tree[parent_id.to_s][:path]}/#{alias_name}" }
+      end
+    end
+    tree
+  end
 
   def to_s
     name

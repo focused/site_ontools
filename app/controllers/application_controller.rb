@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   # set default meta tags
-  before_filter :meta_tags
+  before_filter :meta_tags, if: proc { request.format.try(:html?) }
 
   # make menu lists for using accross the whole layout
   before_filter :make_menu_lists
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
 
   def make_menu_lists
     @menu_lists = {
-      # news_groups: NewsGroup.ordered.all
+      product_groups: ProductGroup.indexed_tree
     }
   end
 
