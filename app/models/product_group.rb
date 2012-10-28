@@ -25,9 +25,9 @@ class ProductGroup < ActiveRecord::Base
     tree = {}
     ordered.values_of(:id, :name, :alias_name, :parent_id).each do |id, name, alias_name, parent_id|
       if parent_id.blank?
-        tree[id.to_s] = { name: name, path: "/#{alias_name}", children: [] }
+        tree[id.to_s] = { name: name, path: "/product_groups/#{id}-#{alias_name}", children: [] }
       else
-        tree[parent_id.to_s][:children] << { name: name, path: "#{tree[parent_id.to_s][:path]}/#{alias_name}" }
+        tree[parent_id.to_s][:children] << { name: name, path: "#{tree[parent_id.to_s][:path]}##{alias_name}" }
       end
     end
     tree
@@ -35,6 +35,10 @@ class ProductGroup < ActiveRecord::Base
 
   def to_s
     name
+  end
+
+  def to_param
+    "#{id}-#{alias_name}"
   end
 
   private

@@ -3,7 +3,7 @@ class AppPagesController < ApplicationController
   layout false, only: 'home_stub'
 
   def home
-
+    @product_groups = ProductGroup.roots.ordered
   end
 
   def home_stub

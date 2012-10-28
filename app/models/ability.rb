@@ -10,7 +10,7 @@ class Ability
       can :manage, :all
     elsif user.is? :editor
       can :index, :app_page
-      can :manage, Page
+      can [:read, :update], Page
       can :manage, PageMetaTag
       can :manage, :file_manager
     end

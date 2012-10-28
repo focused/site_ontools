@@ -9,7 +9,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :pages, t.backend.menu.pages, backend_pages_path,
       icon: 'icon-file', highlights_on: :subpath if can? :index, Page
     primary.item :pages, t.backend.menu.page_meta_tags, backend_page_meta_tags_path,
-      icon: 'icon-file', highlights_on: :subpath if can? :index, PageMetaTag
+      icon: 'icon-globe', highlights_on: :subpath if can? :index, PageMetaTag
     primary.item :pages, t.backend.menu.product_groups, backend_product_groups_path,
       icon: 'icon-folder-close', highlights_on: :subpath if can? :index, ProductGroup
 

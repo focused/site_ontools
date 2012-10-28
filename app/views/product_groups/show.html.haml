@@ -1,0 +1,19 @@
+= content_for :top do
+  .main_1
+    = simple_image @product_group.image.main, nil, class: 'pics_1'
+    %h3= @product_group.name
+    %p.text
+      = @product_group.description
+
+
+
+- @product_groups.each do |pg|
+  .main
+    %a{ name: pg.alias_name }
+    = link_to simple_image(pg.image.small, nil, class: 'pics'), pg
+    %h4= link_to pg.name, pg
+    %p.text
+      = simple_format pg.description
+    = link_to t.helpers.links.more, pg, class: 'all'
+
+

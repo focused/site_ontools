@@ -46,6 +46,7 @@ helpers:
     destroy: Удалить
     do_confirm: Подтвердить
     edit: Редактировать
+    more: Подробнее
     new: Создать
     save: Сохранить
   titles:

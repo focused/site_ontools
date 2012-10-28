@@ -24,6 +24,8 @@ SiteOne::Application.routes.draw do
   match 'filemanager' => 'file_manager#index'
 
   scope '(:locale)' do
+    resources :product_groups, only: %w(show)
+
     # devise
     devise_for :users
 

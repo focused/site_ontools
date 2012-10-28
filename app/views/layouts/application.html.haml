@@ -27,8 +27,10 @@
   %body{ id: params[:controller] << '_controller' }
     = yield :begin
 
-    #best
+    %div{ id: current_page?(root_url) ? 'best' : 'best_1' }
       = render partial: '/layouts/header'
+
+      = yield :top
 
       = render partial: '/layouts/sidebar'
       =# render_navigation
