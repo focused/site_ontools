@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class Data < Thor
-  MODELS = %w(PageMetaTag Page Block)
+  MODELS = %w(PageMetaTag Page ProductGroup Product Image)
 
   desc 'export', 'exports data from db'
   method_options path: 'db/data'
