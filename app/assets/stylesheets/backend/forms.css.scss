@@ -6,12 +6,16 @@
   }
   textarea {
     width: 95%;
+    height: 200px;
   }
   .input-prepend {
 
     input {
       width: 225px;
     }
+  }
+  a.btn-mini i {
+    margin-right: 5px;
   }
 
 }

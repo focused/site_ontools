@@ -1,6 +1,5 @@
-%p
+.thumbnail
   %strong= model.class.human_attribute_name(attr) + ':'
-  %br
   - if model.send(attr).file
     = new_window_link_to simple_image(model.send(attr).thumb, model.send(attr), class: 'img-rounded img-polaroid'), model.send(attr).to_s
   - else

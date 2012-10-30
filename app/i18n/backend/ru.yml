@@ -9,6 +9,7 @@ backend:
     pages: Страницы
     page_meta_tags: Мета теги
     product_groups: Категории продукции
+    products: Продукты
     users: Пользователи
 
   page_meta_tags:
@@ -29,6 +30,10 @@ backend:
   product_groups:
     index:
       title: Категории продукции
+
+  products:
+    index:
+      title: Продукты
 
   sidebar:
     resources: Ресурсы

@@ -22,6 +22,8 @@
 /config/database.yml
 /config/deploy.rb
 /public/uploads/*
+/public/uploads/files/*
+!/public/uploads/files/.thumbs
 
 # other
 .DS_Store

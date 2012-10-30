@@ -41,4 +41,4 @@
 - if can? :create, model_class
   = link_to t('.new', default: t("helpers.links.new")), new_backend_product_group_path, class: 'btn btn-primary'
 
-  = paginate @product_groups, theme: 'backend'
+= paginate @product_groups, theme: 'backend'

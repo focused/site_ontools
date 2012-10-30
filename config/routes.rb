@@ -1,11 +1,14 @@
 SiteOne::Application.routes.draw do
 
+  resources :products
+
   # ----------------------------------------------------------------------------
   # BACKEND
   # ----------------------------------------------------------------------------
 
   get 'admin' => 'backend/app_pages#index', as: 'admin'
   namespace :backend do
+    resources :products
     resources :product_groups
     resources :app_pages, only: 'home'
     resources :users do
@@ -24,6 +27,8 @@ SiteOne::Application.routes.draw do
   match 'filemanager' => 'file_manager#index'
 
   scope '(:locale)' do
+    resources :products, only: %w(show)
+
     resources :product_groups, only: %w(show)
 
     # devise

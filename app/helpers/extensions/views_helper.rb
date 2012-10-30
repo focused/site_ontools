@@ -1,5 +1,8 @@
 module Extensions
   module ViewsHelper
+    MAILTO_REG = /(?<link><a(?<attrs1>[^>]*)(href=["']mailto:(?<email>[^"']*)["'])(?<attrs2>[^>]*)>(?<content>[^<]*)<\/a>)/i
+    ATTR_REG = /(?<name>\S*)=["'](?<value>[^"']*)["']/i
+
     # --------------------------------------------------------------------------
     # pseudo-links/switchers
     # --------------------------------------------------------------------------
@@ -61,6 +64,25 @@ module Extensions
         list << (tag == :ul ? content_tag(:li, s) : s)
       end
       content_tag :ul, list.join.html_safe, html_options
+    end
+
+    def nl_format(text)
+      text.gsub(/\n/, '<br>')
+    end
+
+    def cure_html(html_src)
+      mailto_links = []
+      html_dst = html_src.clone
+      html_src.scan(MAILTO_REG) do |link, attrs1, email, attrs2, content|
+        attrs = { encode: 'javascript' }
+        "#{attrs1} #{attrs2}".scan(ATTR_REG) do |name, value|
+          attrs[name.to_sym] = value
+        end
+        attrs[:subject] = attrs[:title] if attrs[:title]
+        # mailto_links << { src: link, dst: mail_to(email, content, encode: 'javascript') }
+        html_dst.gsub!(link, mail_to(email, content, attrs))
+      end
+      raw html_dst
     end
 
   end

@@ -1,0 +1,10 @@
+.main
+  %a{ name: product.alias_name }
+  - if product.images.first
+    = link_to simple_image(product.images.first.file.normal, nil, class: 'pics'), product
+
+  %h4= link_to product.name, product
+  %p.text
+    = simple_format product.description
+  = link_to t.helpers.links.more, product, class: 'all'
+  .price= number_to_currency(product.price)

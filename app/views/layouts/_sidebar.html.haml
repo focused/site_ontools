@@ -8,6 +8,13 @@
       - pg[:children].each do |pgc|
         = link_to pgc[:name], pgc[:path]
         %br
+        - pgc[:products].each do |p|
+          = link_to p.name, p
+          %br
+
+      - pg[:products].each do |p|
+        = link_to p.name, p
+        %br
 
   %p.about
     Люди работающие в нашей фирме имеют многолетний опыт работы в данной индустрии.

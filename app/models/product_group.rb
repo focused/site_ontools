@@ -6,8 +6,8 @@ class ProductGroup < ActiveRecord::Base
 
   after_destroy :clear_files
 
-  has_many :products
-  has_many :children, foreign_key: 'parent_id', class_name: 'ProductGroup', :dependent => :destroy
+  has_many :products, dependent: :nullify
+  has_many :children, foreign_key: 'parent_id', class_name: 'ProductGroup', dependent: :destroy
   belongs_to :parent, class_name: 'ProductGroup'
 
   mount_uploader :image, ProductGroupUploader
@@ -21,13 +21,27 @@ class ProductGroup < ActiveRecord::Base
   # 3 MB file
   validates :image, file_size: { maximum: 3.megabytes.to_i }, if: lambda { |o| o.image_cache.blank? }
 
+  # def self.indexed_tree
+  #   tree = {}
+  #   ordered.values_of(:id, :name, :alias_name, :parent_id).each do |id, name, alias_name, parent_id|
+  #     if parent_id.blank?
+  #       tree[id.to_s] = { name: name, path: "/product_groups/#{id}-#{alias_name}", children: [] }
+  #     else
+  #       tree[parent_id.to_s][:children] << { name: name, path: "#{tree[parent_id.to_s][:path]}##{alias_name}" }
+  #     end
+  #   end
+  #   tree
+  # end
+
   def self.indexed_tree
     tree = {}
-    ordered.values_of(:id, :name, :alias_name, :parent_id).each do |id, name, alias_name, parent_id|
-      if parent_id.blank?
-        tree[id.to_s] = { name: name, path: "/product_groups/#{id}-#{alias_name}", children: [] }
+    ordered.includes(:products).select(%w(id name alias_name parent_id)).each do |item|
+      if item.parent_id.blank?
+        tree[item.id.to_s] = { name: item.name, path: "/product_groups/#{item.to_param}",
+          children: [], products: item.products }
       else
-        tree[parent_id.to_s][:children] << { name: name, path: "#{tree[parent_id.to_s][:path]}##{alias_name}" }
+        tree[item.parent_id.to_s][:children] << { name: item.name,
+          path: "#{tree[item.parent_id.to_s][:path]}##{item.alias_name}", products: item.products }
       end
     end
     tree

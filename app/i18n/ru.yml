@@ -39,6 +39,7 @@ helpers:
     all: все
     attach: прикрепить
   links:
+    add: Добавить
     back: Назад
     cancel: Отменить
     choose_file: Выбрать файл
@@ -48,6 +49,7 @@ helpers:
     edit: Редактировать
     more: Подробнее
     new: Создать
+    remove: Удалить
     save: Сохранить
   titles:
     edit: '%{model} - редактирование'

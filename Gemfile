@@ -10,6 +10,7 @@ gem 'cancan'
 gem 'pg'
 gem 'squeel' # AR extensions
 gem 'valium' # get values without instantiating AR
+gem 'postgres-copy'
 
 # mem cache client
 # gem 'dalli'
@@ -23,6 +24,7 @@ gem 'simple-navigation-bootstrap'
 gem 'meta-tags', '1.2.4', require: 'meta_tags'
 gem 'kaminari'
 gem 'twitter-bootstrap-rails'
+gem 'nested_form'
 
 # media
 gem "carrierwave"

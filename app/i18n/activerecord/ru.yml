@@ -1,5 +1,8 @@
 activerecord:
   attributes:
+    image:
+      file: файл
+      name: название
     page:
       content: содержимое
       created_at: создана
@@ -25,6 +28,16 @@ activerecord:
       position: порядок
       visible: видимая
       updated_at: обновлена
+    product:
+      alias_name: псевдоним
+      description: описание
+      images: изображения
+      name: название
+      position: порядок
+      price: цена
+      product_group: категория
+      structure: характеристики
+      visible: видимый
     user:
       confirmed: подтвержден
       created_at: создан
@@ -44,5 +57,6 @@ activerecord:
   models:
     page: Страница
     page_meta_tag: Мета тег
+    product: Продукт
     product_group: Категория продукции
     user: Пользователь
