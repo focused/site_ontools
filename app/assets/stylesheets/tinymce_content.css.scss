@@ -1,4 +1,4 @@
-@import '_base.css.scss';
+// @import '_base.css.scss';
 
 .mceContentBody {
   width: 528px;
@@ -7,67 +7,3 @@
   margin: 15px;
 }
 
-#content, .mceContentBody  {
-  a {
-    color: #639363;
-    text-decoration: underline;
-    font-size: 12px;
-    line-height: 1.3em;
-  }
-
-  h1, h2, h3, h4 {
-    color: #639363;
-    font-family: $script_font;
-    font-size: 20px;
-    line-height: 1.3em;
-    font-weight: normal;
-    padding: 0 0 10px 0;
-  }
-
-  p {
-    color: #434343;
-    font-family: $normal_font;
-    font-size: 14px;
-    line-height: 1.3em;
-    padding: 0 0 10px 0;
-    margin: 0;
-    &.note {
-      font-size: 11px;
-    }
-    a {
-      font-size: 14px;
-      line-height: 1.3em;
-    }
-  }
-
-  hr {
-    background-color: #639363;
-    border: none;
-    height: 1px;
-  }
-
-  ul.partners {
-    li {
-      float: left;
-      width: 20%;
-      position: relative;
-      span {
-        display: block;
-        height: 50px;
-        vertical-align: middle;
-      }
-      img {
-        display: block;
-        margin: 0 auto;
-      }
-      a {
-        display: block;
-        text-align: center;
-      }
-    }
-    clear: both;
-    height: 80px;
-    padding: 10px 0 10px;
-  }
-
-}
