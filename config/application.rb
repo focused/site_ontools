@@ -67,6 +67,8 @@ module SiteOne
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
+    # config.logger = Logger.new(STDOUT) unless %w(development test).include? Rails.env
+
     config.generators do |g|
       g.view_specs false
       g.helper_specs false

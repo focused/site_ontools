@@ -1,6 +1,6 @@
 .main
-  %a{ name: product.alias_name }
-  - if product.images.first
+  -#%a{ name: product.alias_name }
+  - if product.images.first.try(:file)
     = link_to simple_image(product.images.first.file.normal, nil, class: 'pics'), product
 
   %h4= link_to product.name, product

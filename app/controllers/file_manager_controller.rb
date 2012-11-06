@@ -3,22 +3,24 @@ class FileManagerController < ApplicationController
 
   authorize_resource class: false
 
+  layout false
+
   def index
-    render :index, layout: false
+    render :index
   end
 
   def browser
-    render :browser, layout: false
+    render :browser
   end
 
   def elfinder
     h, r = ElFinder::Connector.new(
-      root: File.join(Rails.public_path, 'files'),
-      url: '/files',
+      root: File.join(Rails.public_path, 'uploads', 'files'),
+      url: '/uploads/files',
       perms: {
-        'forbidden' => {read: false, write: false, rm: false},
-        /README/ => {write: false},
-        /pjkh\.png$/ => {write: false, rm: false},
+        'forbidden' => { read: false, write: false, rm: false },
+        # /README/ => { write: false },
+        # /pjkh\.png$/ => { write: false, rm: false },
       },
       extractors: {
         'application/zip' => ['unzip', '-qq', '-o'],
@@ -32,7 +34,11 @@ class FileManagerController < ApplicationController
     ).run(params)
 
     headers.merge!(h)
-    render (r.empty? ? {nothing: true} : {text: r.to_json}), layout: false
+    render (r.empty? ? { nothing: true } : { text: r.to_json })
   end
 
+  protected
+  def skip_std_filters
+    true
+  end
 end

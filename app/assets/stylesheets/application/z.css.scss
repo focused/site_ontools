@@ -1,4 +1,31 @@
+#error_explanation {
+  color: #a00;
+  padding: 0 0 20px;
+  h4 {
+    font-size: 14px;
+  }
+  ul {
+    li {
+
+    }
+  }
+}
+
+table {
+  border-spacing: 1px;
+  background: #000;
+  th, td {
+    padding: 10px;
+    background: #fff;
+  }
+}
+
+
 .pics, .pics_1 {
   border: 1px solid #444;
   padding: 2px;
+}
+
+#best, #best_1, #best_2 {
+  margin: 0 auto;
 }

@@ -5,6 +5,6 @@
     %p.text
       = @product_group.description
 
-= render @product_group.products
+= render @product_group.products.includes(:images).all
 
-= render @product_group.children
+= render @product_group.children.ordered.includes(products: :images).all

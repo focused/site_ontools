@@ -1,6 +1,7 @@
 .main
   %a{ name: product_group.alias_name }
-  = link_to simple_image(product_group.image.small, nil, class: 'pics'), product_group
+  =# link_to simple_image(product_group.image.small, nil, class: 'pics'), product_group
+  = simple_image(product_group.image.small, nil, class: 'pics')
   %h4= product_group.name
   %p.text
     = simple_format product_group.description

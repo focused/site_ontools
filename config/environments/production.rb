@@ -46,11 +46,12 @@ SiteOne::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w(backend.js backend.css ie.js ie.css print.css)
+  config.assets.precompile += %w(backend.js backend.css ie.js ie.css print.css tinymce_content.css
+    jquery-ui.js jquery.ui/smoothness/jquery-ui-1.8.23.custom.css elfinder.css elfinder_manifest.js)
 
   # Disable delivery errors, bad email addresses will be ignored
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: 'http://ontools.ru/' }
+  config.action_mailer.default_url_options = { host: 'ontools.ru' }
   # config.action_mailer.delivery_method = :smtp
 
   # config.action_mailer.delivery_method = :smtp
