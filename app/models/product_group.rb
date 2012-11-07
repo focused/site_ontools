@@ -21,18 +21,6 @@ class ProductGroup < ActiveRecord::Base
   # 3 MB file
   validates :image, file_size: { maximum: 3.megabytes.to_i }, if: lambda { |o| o.image_cache.blank? }
 
-  # def self.indexed_tree
-  #   tree = {}
-  #   ordered.values_of(:id, :name, :alias_name, :parent_id).each do |id, name, alias_name, parent_id|
-  #     if parent_id.blank?
-  #       tree[id.to_s] = { name: name, path: "/product_groups/#{id}-#{alias_name}", children: [] }
-  #     else
-  #       tree[parent_id.to_s][:children] << { name: name, path: "#{tree[parent_id.to_s][:path]}##{alias_name}" }
-  #     end
-  #   end
-  #   tree
-  # end
-
   def self.indexed_tree
     tree = {}
     ordered.includes(:products).select(%w(id name alias_name parent_id)).each do |item|

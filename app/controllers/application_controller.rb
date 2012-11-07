@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
+  # set native locale if request url without locale id
+  before_filter do
+    R18n.set APP[:native_locale] unless params[:locale]
+  end
+
   # set default meta tags
   before_filter :meta_tags, if: proc { request.format.try(:html?) }
 
