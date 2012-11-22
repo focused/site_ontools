@@ -1,6 +1,7 @@
 class ImageUploader < BaseUploader
   # call setup_available_size method before cache image
   before :cache, :setup_available_sizes
+  after :cache, :delete_tmp_dir
 
   # we process images with a custom method (read above)
   # process dynamic_resize_to_fit: :default

@@ -7,4 +7,4 @@
   %p.text
     = simple_format product.description
   = link_to t.helpers.links.more, product, class: 'all'
-  .price= number_to_currency(product.price)
+  .price= number_to_currency(product.price, locale: 'ru')

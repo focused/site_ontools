@@ -26,7 +26,7 @@ SiteOne::Application.routes.draw do
   match 'filemanager/:action' => 'file_manager', constraints: { action: /elfinder|browser/ }
   match 'filemanager' => 'file_manager#index'
 
-  scope '(:locale)' do
+  scope '(:locale)', constraints: { locale: %r(#{APP[:available_locales] * '|'}) } do
     resources :products, only: %w(show)
 
     resources :product_groups, only: %w(show)

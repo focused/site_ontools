@@ -1,9 +1,8 @@
 development: &defaults
   available_locales:
     - :ru
-    - :en
   debug: false
-  main_email: 'info@local.ru'
+  main_email: 'info@ontools.ru'
   native_locale: 'ru'
   s3:
     directory: 'rails_template1'

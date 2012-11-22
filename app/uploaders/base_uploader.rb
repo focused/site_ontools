@@ -67,7 +67,14 @@ class BaseUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
-  protected
+protected
+
+  def delete_tmp_dir(new_file)
+    # make sure we don't delete other things accidentally by checking the name pattern
+    if @cache_id_was.present? && @cache_id_was =~ /\A[\d]{8}\-[\d]{4}\-[\d]+\-[\d]{4}\z/
+      FileUtils.rm_rf(File.join(cache_dir, @cache_id_was))
+    end
+  end
 
   def thumbnable?(new_file)
     return model.class.thumbnable? if model.respond_to? :thumbnable?

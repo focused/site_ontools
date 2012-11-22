@@ -21,6 +21,7 @@
     = field_set_tag model_class.human_attribute_name(:images), class: 'images_collection' do
       = f.fields_for :images do |image_form|
         = image_form.input :name
+        = image_form.input :position
         = render partial: '/backend/form_asset', locals: { f: image_form, attr: 'file', is_collection: 'true' }
         .control-group
           .controls

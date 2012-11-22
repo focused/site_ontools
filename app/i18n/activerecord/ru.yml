@@ -3,6 +3,7 @@ activerecord:
     image:
       file: файл
       name: название
+      position: порядок
     page:
       content: содержимое
       created_at: создана

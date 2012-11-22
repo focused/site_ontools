@@ -4,10 +4,8 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
-  # set native locale if request url without locale id
-  before_filter do
-    R18n.set APP[:native_locale] unless params[:locale]
-  end
+  ## set native locale if request url without locale id
+  prepend_before_filter :set_locale
 
   # set default meta tags
   before_filter :meta_tags, if: proc { request.format.try(:html?) }
@@ -15,7 +13,7 @@ class ApplicationController < ActionController::Base
   # make menu lists for using accross the whole layout
   before_filter :make_menu_lists
 
-  protected
+protected
 
   def meta_tags
     meta = PageMetaTag.by_path(params[:path].to_s)
@@ -36,5 +34,9 @@ class ApplicationController < ActionController::Base
   # adds language prefix to every url unless locale is native
   def default_url_options
     { locale: r18n.locale.code == APP[:native_locale] || Rails.env.test? ? nil : r18n.locale.code }
+  end
+
+  def set_locale
+    params[:locale] ||= APP[:native_locale] unless params[:locale]
   end
 end

@@ -33,7 +33,7 @@
 %p
   %strong= model_class.human_attribute_name(:visible) + ':'
   %br
-  = @product.visible
+  = @product.visible ? t.yes : t.no
 
 = content_tag :legend, model_class.human_attribute_name(:images) do
   %ul.thumbnails
