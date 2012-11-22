@@ -48,7 +48,7 @@ SiteOne::Application.configure do
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   config.assets.precompile += %w(backend.js backend.css ie.js ie.css print.css tinymce_content.css
     jquery-ui.js jquery.ui/smoothness/jquery-ui-1.8.23.custom.css elfinder.css elfinder_manifest.js
-    jquery.fancybox.css fancybox_manifest.js)
+    fancybox.css fancybox_manifest.js)
 
   # Disable delivery errors, bad email addresses will be ignored
   config.action_mailer.raise_delivery_errors = true
