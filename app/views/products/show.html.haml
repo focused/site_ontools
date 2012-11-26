@@ -1,6 +1,7 @@
 #box
   - @product.images.each_with_index do |img, i|
-    = link_to simple_image(img.file.send(i > 0 ? :mini : :normal)), img.file.full.url, rel: 'group', title: img.name, class: 'gallery'
+    = link_to simple_image(img.file.send(i > 0 ? :mini : :normal), img.name, class: i > 0 ? 'pics pics_2' : 'pics'),
+      img.file.full.url, rel: 'group', title: img.name, class: 'gallery'
 
 .main_2
   %h4= @product.name

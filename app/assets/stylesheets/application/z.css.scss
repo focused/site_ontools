@@ -21,9 +21,26 @@
 }
 
 
-.pics, .pics_1 {
+.pics, .pics_1, .pics_2 {
   border: 1px solid #444;
   padding: 2px;
+}
+
+#products_controller {
+  #box {
+    width: 175px;
+  }
+  .main_2 {
+    width: 470px;
+  }
+  .pics {
+    margin-right: 0px;
+    margin-bottom: 1px;
+  }
+  .pics_2 {
+    padding: 1px;
+    margin-right: 1px;
+  }
 }
 
 #best, #best_1, #best_2 {
