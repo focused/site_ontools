@@ -3,8 +3,8 @@
     = simple_image @product_group.image.main, nil, class: 'pics_1'
     %h3= @product_group.name
     %p.text
-      = @product_group.description
+      = @product_group.content
 
-= render @product_group.products.includes(:images).all
+= render @products
 
 = render @product_group.children.ordered.includes(products: :images).all

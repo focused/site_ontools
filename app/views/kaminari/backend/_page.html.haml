@@ -10,4 +10,4 @@
 - if page.current?
   %span= page
 - else
-  = link_to page, url << (current_page == 2 ? '/page/1' : ''), {remote: remote, rel: page.next? ? 'next' : page.prev? ? 'prev' : nil}
+  = link_to page, url << (page == 1 ? "/page/#{page}" : ''), {remote: remote, rel: page.next? ? 'next' : page.prev? ? 'prev' : nil}

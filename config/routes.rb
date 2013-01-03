@@ -8,8 +8,12 @@ SiteOne::Application.routes.draw do
 
   get 'admin' => 'backend/app_pages#index', as: 'admin'
   namespace :backend do
-    resources :products
-    resources :product_groups
+    %w(products product_groups).each do |type|
+      resources type.to_sym, except: 'index' do
+        get '(/limit/:limit)(/page/:page)', action: 'index', on: :collection, as: '',
+          constraints: { limit: /\d+/, page: /\d+/ }
+      end
+    end
     resources :app_pages, only: 'home'
     resources :users do
       get 'confirm', on: :member

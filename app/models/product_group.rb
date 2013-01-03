@@ -2,11 +2,11 @@ require 'validators/file_size_validator'
 
 class ProductGroup < ActiveRecord::Base
   attr_accessible :name, :position, :visible, :alias_name, :description, :parent_id
-  attr_accessible :image, :image_cache, :remove_image
+  attr_accessible :image, :image_cache, :remove_image, :content
 
   after_destroy :clear_files
 
-  has_many :products, dependent: :nullify
+  has_many :products, dependent: :nullify, order: 'position'
   has_many :children, foreign_key: 'parent_id', class_name: 'ProductGroup', dependent: :destroy
   belongs_to :parent, class_name: 'ProductGroup'
 
@@ -17,7 +17,7 @@ class ProductGroup < ActiveRecord::Base
   scope :in_group, proc { |id| where(parent_id: id) }
 
   validates :name, presence: true, length: { maximum: 255 }
-  validates :alias_name, presence: true, uniqueness: true, length: { maximum: 255 }, format: { with: /^[-a-z_]+$/i }
+  validates :alias_name, presence: true, uniqueness: true, length: { maximum: 255 }, format: { with: /^[-a-z_0-9]+$/i }
   # 3 MB file
   validates :image, file_size: { maximum: 3.megabytes.to_i }, if: lambda { |o| o.image_cache.blank? }
 

@@ -24,6 +24,10 @@
   %br
   = simple_format @product_group.description
 %p
+  %strong= model_class.human_attribute_name(:content) + ':'
+  %br
+  = simple_format @product_group.content
+%p
   %strong= model_class.human_attribute_name(:visible) + ':'
   %br
   = @product_group.visible ? t.yes : t.no

@@ -27,6 +27,10 @@
   %br
   = simple_format @product.description
 %p
+  %strong= model_class.human_attribute_name(:content) + ':'
+  %br
+  = simple_format @product.content
+%p
   %strong= model_class.human_attribute_name(:structure) + ':'
   %br
   = simple_format @product.structure

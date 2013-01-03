@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
   attr_accessible :alias_name, :description, :name, :position, :price, :price,
-    :structure, :visible, :product_group_id, :images_attributes
+    :structure, :visible, :product_group_id, :images_attributes, :content
 
   belongs_to :product_group
   after_initialize do
@@ -18,7 +18,7 @@ class Product < ActiveRecord::Base
   scope :visible, where(visible: true)
 
   validates :name, presence: true, length: { maximum: 512 }
-  validates :alias_name, presence: true, uniqueness: true, length: { maximum: 512 }, format: { with: /^[-a-z_]+$/i }
+  validates :alias_name, presence: true, uniqueness: true, length: { maximum: 512 }, format: { with: /^[-a-z_0-9]+$/i }
 
   def to_s
     name

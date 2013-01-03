@@ -21,6 +21,7 @@ activerecord:
       visible: видимый
     product_group:
       alias_name: псевдоним
+      content: развернутое описание
       created_at: создана
       description: описание
       image: изображение
@@ -31,6 +32,7 @@ activerecord:
       updated_at: обновлена
     product:
       alias_name: псевдоним
+      content: развернутое описание
       description: описание
       images: изображения
       name: название
