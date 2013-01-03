@@ -6,7 +6,9 @@
 .main_2
   %h4= @product.name
   %p.text
-    = @product.content
+    %span{ style: "color: #444; font-weight: bold;" }= "#{Product.human_attribute_name :content}:"
+    %br
+    = simple_format @product.content
     %br
     %br
     %span{ style: "color: #444; font-weight: bold;" }= "#{Product.human_attribute_name :structure}:"
