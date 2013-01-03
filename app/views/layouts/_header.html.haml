@@ -8,7 +8,7 @@
       - @menu_lists[:product_groups].each do |i, pg|
         %li
           = link_to pg[:name], pg[:path]
-          %ul
+          -#%ul
             - pg[:products].each do |p|
               %li= link_to p.name, p
 

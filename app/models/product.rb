@@ -18,7 +18,7 @@ class Product < ActiveRecord::Base
   scope :visible, where(visible: true)
 
   validates :name, presence: true, length: { maximum: 512 }
-  validates :alias_name, presence: true, uniqueness: true, length: { maximum: 512 }
+  validates :alias_name, presence: true, uniqueness: true, length: { maximum: 512 }, format: { with: /^[-a-z_]+$/i }
 
   def to_s
     name
