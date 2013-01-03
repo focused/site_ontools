@@ -9,4 +9,8 @@ class AppPagesController < ApplicationController
   def home_stub
   end
 
+  def prices
+    @products = Product.ordered.all
+  end
+
 end

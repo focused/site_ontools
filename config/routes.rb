@@ -43,7 +43,7 @@ SiteOne::Application.routes.draw do
     end
 
     # app pages
-    get ':action' => 'app_pages', constraints: { action: /home|home_stub/ }, as: 'app_page'
+    get ':action' => 'app_pages', constraints: { action: /home|home_stub|prices/ }, as: 'app_page'
 
     # custom pages
     match '*path' => 'pages#show', as: :static_page,

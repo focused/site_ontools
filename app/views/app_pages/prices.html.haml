@@ -1,0 +1,13 @@
+%h2= t('.title')
+%table
+  %tbody
+    %tr
+      %th.first №
+      %th= Product.human_attribute_name :name
+      %th.last= Product.human_attribute_name :price
+    - @products.each_with_index do |product, index|
+      %tr
+        %td.center= index + 1
+        %td= product.name
+        %td= number_to_currency(product.price, locale: 'ru')
+

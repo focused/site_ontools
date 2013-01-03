@@ -1,3 +1,7 @@
+app_pages:
+  prices:
+    title: Прайс-лист
+
 labels:
   group: Раздел
 
