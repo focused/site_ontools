@@ -48,7 +48,8 @@ group :assets do
 end
 
 # js runtime
-gem 'therubyracer'
+gem 'therubyracer', '~> 0.12.1'
+# gem 'libv8', '3.3.10.4'
 
 # js
 gem 'jquery-rails'
