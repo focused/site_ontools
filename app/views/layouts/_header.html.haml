@@ -1,6 +1,7 @@
 = link_to_unless_current simple_image('application/logobottom.png', nil, class: 'logo'), root_path
 
-= image_tag 'application/banner123.png', class: 'banner', style: 'position: absolute; right: 11px; top: 16px'
+= link_to '/products/2-D-LiteRX4_kit' do
+  = image_tag 'application/banner123.png', class: 'banner', style: 'position: absolute; right: 11px; top: 16px'
 
 %ul#menu
   %li
