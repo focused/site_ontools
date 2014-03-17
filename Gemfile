@@ -23,6 +23,7 @@ gem 'simple-navigation'
 gem 'simple-navigation-bootstrap'
 gem 'meta-tags', '1.2.4', require: 'meta_tags'
 gem 'kaminari'
+gem "less-rails"
 gem 'twitter-bootstrap-rails'
 gem 'nested_form'
 
