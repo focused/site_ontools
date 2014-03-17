@@ -12,14 +12,17 @@ body {
 // Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
 // Note: If you use asset_path() here, your compiled boostrap_and_overrides.css will not
 //       have the proper paths. So for now we use the absolute path.
-@fontAwesomeEotPath: '/assets/fontawesome-webfont.eot';
-@fontAwesomeWoffPath: '/assets/fontawesome-webfont.woff';
-@fontAwesomeTtfPath: '/assets/fontawesome-webfont.ttf';
-@fontAwesomeSvgzPath: 'fontawesome-webfont.svgz';
-@fontAwesomeSvgPath: '/assets/fontawesome-webfont.svg';
+@fontAwesomeEotPath: font-url("fontawesome-webfont.eot");
+@fontAwesomeEotPath_iefix: font-url("fontawesome-webfont.eot?#iefix");
+@fontAwesomeWoffPath: font-url("fontawesome-webfont.woff");
+@fontAwesomeTtfPath: font-url("fontawesome-webfont.ttf");
+@fontAwesomeSvgPath: font-url("fontawesome-webfont.svg#fontawesomeregular");
 
 // Font Awesome
-@import "fontawesome";
+@import "fontawesome/font-awesome";
+
+// Glyphicons
+//@import "twitter/bootstrap/sprites.less";
 
 // Your custom LESS stylesheets goes here
 //
@@ -27,7 +30,7 @@ body {
 // you may use and inherit here
 //
 // If you'd like to override bootstrap's own variables, you can do so here as well
-// See http://twitter.github.com/bootstrap/less.html for their names and documentation
+// See http://twitter.github.com/bootstrap/customize.html#variables for their names and documentation
 //
 // Example:
 // @linkColor: #ff0000;
@@ -35,4 +38,6 @@ body {
 .nav > .active > a > [class^="icon-"], .nav > .active > a > [class*=" icon-"] {
   background-image: none;
 }
+
+
 
