@@ -79,7 +79,7 @@ class Data < Thor
 
   protected
   def set_models(arg_models)
-    arg_models = MODELS if arg_models == 'RAILS_ENV'
+    arg_models = MODELS if arg_models =~ /^RAILS_ENV=\S+/
     @models = arg_models.is_a?(String) ? arg_models.split : arg_models
   end
 
