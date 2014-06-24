@@ -1,6 +1,6 @@
 SiteOne::Application.routes.draw do
 
-  resources :products
+  # resources :products
 
   # ----------------------------------------------------------------------------
   # BACKEND
@@ -14,6 +14,11 @@ SiteOne::Application.routes.draw do
           constraints: { limit: /\d+/, page: /\d+/ }
       end
     end
+    resources :fast_orders, only: %w(show) do
+      get '(/limit/:limit)(/page/:page)', action: 'index', on: :collection, as: '',
+          constraints: { limit: /\d+/, page: /\d+/ }
+    end
+
     resources :app_pages, only: 'home'
     resources :users do
       get 'confirm', on: :member
@@ -31,6 +36,8 @@ SiteOne::Application.routes.draw do
   match 'filemanager' => 'file_manager#index'
 
   scope '(:locale)', constraints: { locale: %r(#{APP[:available_locales] * '|'}) } do
+    resources :fast_orders, only: %w(new create)
+
     resources :products, only: %w(show)
 
     resources :product_groups, only: %w(show)

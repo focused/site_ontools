@@ -1,0 +1,28 @@
+- model_class = FastOrder
+.page-header
+  %h1= t '.title', default: model_class.model_name.human.pluralize
+
+= list_limits(controller.list_limits, session[:backend_fast_orders][:limit], { class: 'active' }) do |limit|
+  - link_to limit, backend_fast_orders_path(limit: limit)
+
+%table.table.table-striped.table-hover
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:name)
+      %th= model_class.human_attribute_name(:phone)
+      %th= model_class.human_attribute_name(:email)
+      %th= model_class.human_attribute_name(:created_at)
+      %th= model_class.human_attribute_name(:updated_at)
+
+  %tbody
+    - @fast_orders.each do |fast_order|
+      %tr
+        %td= fast_order.id
+        %td= link_to fast_order.name, [:backend, fast_order]
+        %td= fast_order.phone
+        %td= fast_order.email
+        %td= l fast_order.created_at, :full
+        %td= l fast_order.updated_at, :full
+
+= paginate @fast_orders, theme: 'backend'

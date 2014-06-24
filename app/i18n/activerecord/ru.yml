@@ -1,5 +1,11 @@
 activerecord:
   attributes:
+    fast_order:
+      name: имя
+      phone: контактный телефон
+      email: email
+      created_at: создан
+      updated_at: изменен
     image:
       file: файл
       name: название
@@ -58,6 +64,7 @@ activerecord:
         1: 'недостаточной длины (не может быть меньше %{count} символа)'
         n: 'недостаточной длины (не может быть меньше %{count} символов)'
   models:
+    fast_order: Заказ в 1 клик
     page: Страница
     page_meta_tag: Мета тег
     product: Продукт

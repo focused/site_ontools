@@ -8,3 +8,17 @@
 = render @products
 
 = render @product_group.children.ordered.includes(products: :images).all
+
+
+= content_for :head do
+  = stylesheet_link_tag 'fancybox'
+  = javascript_include_tag 'fancybox_manifest'
+
+:javascript
+  $(document).ready(function() {
+    $("a.gallery, a.iframe").fancybox({
+      'hideOnContentClick': false,
+      'frameWidth': 300,
+      'frameHeight': 280
+    })
+  })

@@ -1,0 +1,13 @@
+%h2= t '.title'
+
+%p
+  %strong= FastOrder.human_attribute_name :name
+  = @data.name
+
+%p
+  %strong= FastOrder.human_attribute_name :phone
+  = @data.phone
+
+%p
+  %strong= FastOrder.human_attribute_name :email
+  = @data.email

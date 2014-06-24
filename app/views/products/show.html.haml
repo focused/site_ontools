@@ -16,6 +16,7 @@
     = simple_format @product.structure
 
   = link_to "#{t.helpers.labels.all} #{@product.product_group.name}", @product.product_group, class: 'all'
+  = link_to t.links.fast_order, new_fast_order_path, class: 'fast_order gallery'
 
   .price
     = number_to_currency(@product.price, locale: 'ru')
@@ -26,6 +27,10 @@
 
 :javascript
   $(document).ready(function() {
-    $("a.gallery, a.iframe").fancybox()
+    $("a.gallery, a.iframe").fancybox({
+      'hideOnContentClick': false,
+      'frameWidth': 300,
+      'frameHeight': 280
+    })
   })
 

@@ -4,8 +4,13 @@ backend:
       description: Выберите пункт меню в панели навигации для управления ресурсом
       title: Управление
 
+  fast_orders:
+    index:
+      title: Заказы в 1 клик
+
   menu:
     app_pages: Управление
+    fast_orders: Заказы в 1 клик
     pages: Страницы
     page_meta_tags: Мета теги
     product_groups: Категории продукции

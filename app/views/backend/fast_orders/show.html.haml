@@ -1,0 +1,30 @@
+- model_class = FastOrder
+.page-header
+  %h1= t '.title', default: model_class.model_name.human
+
+%p
+  %strong= model_class.human_attribute_name(:name) + ':'
+  %br
+  = link_to @fast_order.name, [:backend, @fast_order]
+%p
+  %strong= model_class.human_attribute_name(:phone) + ':'
+  %br
+  = link_to @fast_order.phone, [:backend, @fast_order]
+%p
+  %strong= model_class.human_attribute_name(:email) + ':'
+  %br
+  = link_to @fast_order.email, [:backend, @fast_order]
+
+%p
+  %strong= model_class.human_attribute_name(:created_at) + ':'
+  %br
+  = l @fast_order.created_at, :full
+%p
+  %strong= model_class.human_attribute_name(:updated_at) + ':'
+  %br
+  = l @fast_order.updated_at, :full
+
+
+.form-actions
+  - if can? :index, @fast_order
+    = link_to t('.back', default: t("helpers.links.back")), backend_fast_orders_path, class: 'btn'

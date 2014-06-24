@@ -14,6 +14,8 @@ SimpleNavigation::Configuration.run do |navigation|
       icon: 'icon-folder-close', highlights_on: :subpath if can? :index, ProductGroup
     primary.item :products, t.backend.menu.products, backend_products_path,
       icon: 'icon-gift', highlights_on: :subpath if can? :index, Product
+    primary.item :fast_orders, t.backend.menu.fast_orders, backend_fast_orders_path,
+      icon: 'icon-pencil', highlights_on: :subpath if can? :index, FastOrder
 
     primary.dom_id = 'backend_side_menu'
     primary.dom_class = 'nav nav-list'

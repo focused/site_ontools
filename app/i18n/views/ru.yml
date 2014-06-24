@@ -2,11 +2,24 @@ app_pages:
   prices:
     title: Прайс-лист
 
+fast_orders:
+  create:
+    title: Спасибо за заказ!
+  created: В ближайшее время наш менеджер свяжется с Вами.
+  form:
+    send: Отправить заказ
+    title: Купить в 1 клик
+
 labels:
   group: Раздел
 
 links:
+  fast_order: Купить в 1 клик
   unsubscribe: Отписаться от обновлений
+
+notify_mailer:
+  fast_order:
+    title: Заказ
 
 sidebar:
   all_products: Вся продукция

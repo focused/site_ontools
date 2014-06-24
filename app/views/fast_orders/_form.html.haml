@@ -1,0 +1,11 @@
+= simple_form_for @fast_order, html: { remote: true } do |f|
+  %legend= t('.title')
+
+  = f.input :name
+  = f.input :phone
+  = f.input :email
+
+  = f.submit t('.send'), class: 'btn'
+
+
+
