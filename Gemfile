@@ -101,3 +101,6 @@ group :production, :stage do
   # gem 'thin'
   # gem 'airbrake'
 end
+
+
+gem 'figaro'

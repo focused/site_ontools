@@ -1,0 +1,3 @@
+notify_mailer:
+  fast_order:
+    subject: Новый заказ
