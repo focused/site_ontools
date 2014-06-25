@@ -1,10 +1,11 @@
 activerecord:
   attributes:
     fast_order:
+      created_at: создан
+      email: email
       name: имя
       phone: контактный телефон
-      email: email
-      created_at: создан
+      product_name: наименование товара
       updated_at: изменен
     image:
       file: файл

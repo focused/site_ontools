@@ -2,18 +2,19 @@
 .page-header
   %h1= t '.title', default: model_class.model_name.human
 
+
 %p
   %strong= model_class.human_attribute_name(:name) + ':'
   %br
-  = link_to @fast_order.name, [:backend, @fast_order]
+  = @fast_order.name
 %p
   %strong= model_class.human_attribute_name(:phone) + ':'
   %br
-  = link_to @fast_order.phone, [:backend, @fast_order]
+  = @fast_order.phone
 %p
   %strong= model_class.human_attribute_name(:email) + ':'
   %br
-  = link_to @fast_order.email, [:backend, @fast_order]
+  = @fast_order.email
 
 %p
   %strong= model_class.human_attribute_name(:created_at) + ':'
@@ -24,6 +25,10 @@
   %br
   = l @fast_order.updated_at, :full
 
+%p
+  %strong= model_class.human_attribute_name(:product_name) + ':'
+  %br
+  = @fast_order.product ? link_to(@fast_order.product_name, [:backend, @fast_order.product]) : @fast_order.product_name
 
 .form-actions
   - if can? :index, @fast_order

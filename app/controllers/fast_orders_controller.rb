@@ -2,7 +2,7 @@ class FastOrdersController < ApplicationController
   layout false
 
   def new
-    @fast_order = FastOrder.new
+    @fast_order = FastOrder.new(product_id: params[:product_id])
     render :_form
   end
 

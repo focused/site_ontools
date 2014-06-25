@@ -7,5 +7,5 @@
   %p.text
     = simple_format product.description
   = link_to t.helpers.links.more, product, class: 'all'
-  = link_to t.links.fast_order, new_fast_order_path, class: 'fast_order gallery'
+  = link_to t.links.fast_order, new_fast_order_path(product_id: product), class: 'fast_order gallery'
   .price= number_to_currency(product.price, locale: 'ru')

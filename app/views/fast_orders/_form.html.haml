@@ -1,6 +1,9 @@
 = simple_form_for @fast_order, html: { remote: true } do |f|
   %legend= t('.title')
 
+  %p= @fast_order.product_name
+
+  = f.hidden_field :product_id
   = f.input :name
   = f.input :phone
   = f.input :email

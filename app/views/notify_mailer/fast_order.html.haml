@@ -1,6 +1,9 @@
 %h2= t '.title'
 
 %p
+  %strong= @data.product_name
+
+%p
   %strong= FastOrder.human_attribute_name :name
   = @data.name
 

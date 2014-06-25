@@ -12,6 +12,7 @@
       %th= model_class.human_attribute_name(:name)
       %th= model_class.human_attribute_name(:phone)
       %th= model_class.human_attribute_name(:email)
+      %th= model_class.human_attribute_name(:product_name)
       %th= model_class.human_attribute_name(:created_at)
       %th= model_class.human_attribute_name(:updated_at)
 
@@ -22,6 +23,8 @@
         %td= link_to fast_order.name, [:backend, fast_order]
         %td= fast_order.phone
         %td= fast_order.email
+        %td
+          = fast_order.product ? link_to(fast_order.product_name, [:backend, fast_order.product]) : fast_order.product_name
         %td= l fast_order.created_at, :full
         %td= l fast_order.updated_at, :full
 
