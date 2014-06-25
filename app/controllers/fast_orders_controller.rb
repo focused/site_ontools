@@ -9,7 +9,7 @@ class FastOrdersController < ApplicationController
   def create
     @fast_order = FastOrder.new(params[:fast_order])
     if @fast_order.save
-      NotifyMailer.fast_order(@fast_order)
+      NotifyMailer.fast_order(@fast_order).deliver
     else
       render :new
     end
