@@ -15,6 +15,14 @@
   %strong= model_class.human_attribute_name(:email) + ':'
   %br
   = @fast_order.email
+%p
+  %strong= model_class.human_attribute_name(:address) + ':'
+  %br
+  = @fast_order.address
+%p
+  %strong= model_class.human_attribute_name(:comments) + ':'
+  %br
+  = @fast_order.comments
 
 %p
   %strong= model_class.human_attribute_name(:created_at) + ':'

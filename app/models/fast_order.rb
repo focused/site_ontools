@@ -1,5 +1,5 @@
 class FastOrder < ActiveRecord::Base
-  attr_accessible :name, :phone, :email, :product_id
+  attr_accessible :name, :phone, :email, :product_id, :address, :comments
 
   belongs_to :product
 

@@ -1,6 +1,8 @@
 activerecord:
   attributes:
     fast_order:
+      address: адрес
+      comments: комментарии
       created_at: создан
       email: email
       name: имя
