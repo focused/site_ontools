@@ -1,0 +1,19 @@
+%yml_catalog{ date: Time.now.strftime("%Y-%m-%d %H:%M") }
+  %shop
+    %name= t.app.name
+    %url ontools.ru
+
+    %catalog
+      - @product_groups.each do |gr|
+        %category{ id: gr.id }= gr.extra_name
+
+    %items
+      - @products.each do |pr|
+        %item{ id: pr.id }
+          %name= pr.name
+          %url= product_url(pr)
+          %price= number_to_currency(pr.price)
+          %categoryId= pr.product_group_id
+          %vendor Elinchrom
+          %image= root_url(pr.images.first.file).gsub("//", "/")
+          %description= pr.content

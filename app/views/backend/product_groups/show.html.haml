@@ -11,6 +11,10 @@
   %br
   = link_to @product_group.name, [:backend, @product_group]
 %p
+  %strong= model_class.human_attribute_name(:extra_name) + ':'
+  %br
+  = link_to @product_group.extra_name, [:backend, @product_group]
+%p
   %strong= model_class.human_attribute_name(:alias_name) + ':'
   %br
   =# link_to @product_group.alias_name, @product_group

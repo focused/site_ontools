@@ -33,6 +33,7 @@ activerecord:
       content: развернутое описание
       created_at: создана
       description: описание
+      extra_name: дополнительное имя
       image: изображение
       name: название
       parent: родитель

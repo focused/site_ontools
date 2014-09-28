@@ -11,6 +11,9 @@ class AppPagesController < ApplicationController
 
   def prices
     @products = Product.ordered.all
-  end
 
+    respond_with do |f|
+      f.xml { @product_groups = ProductGroup.ordered.all }
+    end
+  end
 end
