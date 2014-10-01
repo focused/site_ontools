@@ -35,6 +35,10 @@ SiteOne::Application.routes.draw do
   match 'filemanager/:action' => 'file_manager', constraints: { action: /elfinder|browser/ }
   match 'filemanager' => 'file_manager#index'
 
+  constraints(host: /ontool.ru/) do
+    match "/(*path)" => redirect { |params, req| "http://ontools.ru/#{params[:path]}" }
+  end
+
   scope '(:locale)', constraints: { locale: %r(#{APP[:available_locales] * '|'}) } do
     resources :fast_orders, only: %w(new create)
 
