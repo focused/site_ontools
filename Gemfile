@@ -53,7 +53,7 @@ gem 'therubyracer', '~> 0.12.1'
 # gem 'libv8', '3.3.10.4'
 
 # js
-gem 'jquery-rails'
+gem 'jquery-rails', "~> 2.1.2"
 
 # validations
 gem 'valid_email'
