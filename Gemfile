@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '~> 3.2.11'
 
 # auth
-gem 'devise'
-gem 'cancan'
+gem 'devise', '~> 2.1.2'
+gem 'cancan', '~> 1.6.8'
 
 # database
 gem 'pg'
@@ -58,8 +58,8 @@ gem 'jquery-rails'
 # validations
 gem 'valid_email'
 
-gem 'tinymce-rails'
-gem 'tinymce-rails-langs'
+gem 'tinymce-rails', '~> 3.5.6'
+gem 'tinymce-rails-langs', '~> 0.1'
 gem 'el_finder'
 
 # tests
@@ -93,7 +93,7 @@ gem 'awesome_print', group: %w(test development console)
 gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
+gem "capistrano", "~> 2.15.4"
 
 # heroku addons
 group :production, :stage do
