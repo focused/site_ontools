@@ -29,7 +29,7 @@ class Product < ActiveRecord::Base
   end
 
   def intro
-    if par1 = content[/(<p>(.+?)<\/p>|([^>\n]+))/m, 0]
+    if (par1 = content[/(<p>(.+?)<\/p>|([^>\n]+))/m, 0])
       par1.strip
     else
       content

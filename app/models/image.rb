@@ -10,7 +10,9 @@ class Image < ActiveRecord::Base
 
   mount_uploader :file, ImageUploader
 
-  default_scope order(:position)
+  default_scope do
+    order(:position)
+  end
 
   before_save :update_file_attributes
   after_destroy :clear_files

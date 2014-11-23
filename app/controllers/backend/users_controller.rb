@@ -1,13 +1,13 @@
 class Backend::UsersController < Backend::ApplicationController
   respond_to :html
 
-  before_filter only: 'create' do
+  before_action only: 'create' do
     @user = User.new(params[:user], without_protection: true)
   end
 
   load_and_authorize_resource
 
-  before_filter only: %w(update confirm) do
+  before_action only: %w(update confirm) do
     @user.edited_by_admin = true
   end
 

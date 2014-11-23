@@ -78,10 +78,10 @@ module Extensions::ActionProcessing
       self.init_actions = options[:init_actions]
 
       # register filters
-      before_filter(init_actions ? { only: init_actions } : {}) do
+      before_action(init_actions ? { only: init_actions } : {}) do
         session[session_key] ||= params_defaults # default session data
       end
-      before_filter :store_and_process_params, only: process_actions
+      before_action :store_and_process_params, only: process_actions
 
     end
   end

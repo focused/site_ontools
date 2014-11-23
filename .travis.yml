@@ -8,6 +8,7 @@ env:
     - BUILD_CMD='rspec'
     - BUILD_CMD='rake assets:precompile RAILS_ENV=production'
     - BUILD_CMD='rake db:setup RAILS_ENV=development'
+    - BUILD_CMD='rubocop'
 
 before_script:
   - bundle exec rake db:create db:migrate

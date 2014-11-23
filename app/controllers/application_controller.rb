@@ -5,13 +5,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   ## set native locale if request url without locale id
-  prepend_before_filter :set_locale
+  prepend_before_action :set_locale
 
   # set default meta tags
-  before_filter :meta_tags, if: proc { request.format.try(:html?) }
+  before_action :meta_tags, if: proc { request.format.try(:html?) }
 
   # make menu lists for using accross the whole layout
-  before_filter :make_menu_lists
+  before_action :make_menu_lists
 
 protected
 

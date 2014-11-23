@@ -3,7 +3,7 @@ class Backend::ProductsController < Backend::ApplicationController
 
   load_and_authorize_resource
 
-  before_filter only: %w(new edit) do
+  before_action only: %w(new edit) do
     @product.images.build if @product.images.empty?
   end
 
