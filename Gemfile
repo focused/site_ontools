@@ -78,6 +78,7 @@ group :test, :development do
 end
 
 group :development do
+  gem "rubocop", require: false
   # server
   gem 'thin'
 
