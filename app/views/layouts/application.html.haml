@@ -4,6 +4,9 @@
     %meta{ charset: Rails.application.config.encoding }
     %meta{ 'http-equiv' => 'X-UA-Compatible', content: 'IE=Edge,chrome=1' }
     %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
+    - if current_page?(root_url)
+      %meta{ name: 'yandex-verification', content: '596de3752f4cb3a0' }
+
     = display_meta_tags(site: t.app.name, reverse: true, separator: '-')
 
     = favicon_link_tag '/favicon.png', type: 'image/png'
